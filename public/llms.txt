@@ -1,0 +1,21 @@
+# SPOT Packers & Movers
+
+> IBA approved Pan India packers & movers. 4.9★ rated with 676+ Google reviews. Home, office, car & bike transport, packing, storage, and international relocation.
+
+## Pages
+- [Home](/): Overview of SPOT Packers & Movers
+- [Services](/services): All relocation services
+- [About](/about): Company story and team
+- [Coverage](/coverage): Pan India coverage map
+- [FAQ](/faq): Common questions answered
+- [Contact](/contact): Get a free quote
+
+## Services
+- [Home Relocation](/services/home-relocation)
+- [Office Relocation](/services/office-relocation)
+- [Car Transportation](/services/car-transportation)
+- [Bike Transportation](/services/bike-transportation)
+- [Packing Services](/services/packing-services)
+- [Loading & Unloading](/services/loading-unloading)
+- [Warehouse Storage](/services/warehouse-storage)
+- [International Relocation](/services/international-relocation)

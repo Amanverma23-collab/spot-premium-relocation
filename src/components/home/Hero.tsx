@@ -3,7 +3,7 @@ import { ArrowRight, Phone, Shield, Truck, Clock, PackageCheck } from "lucide-re
 import { SITE, telUrl, whatsappUrl } from "@/lib/site";
 import { useCountUp } from "@/hooks/use-count-up";
 import { LogisticsBackdrop } from "@/components/visuals/LogisticsBackdrop";
-import logoAsset from "@/assets/spot-logo.png.asset.json";
+import logoAsset from "@/assets/spot-logo.png";
 
 const HERO_VIDEO = "https://assets.mixkit.co/videos/4485/4485-720.mp4";
 const HERO_POSTER =
@@ -30,7 +30,12 @@ export function Hero() {
         {/* Brand lockup — fills the previously empty area above the badge */}
         <div className="mb-8 flex items-center gap-3 animate-brand-reveal sm:mb-10">
           <span className="grid h-12 w-12 place-items-center rounded-2xl bg-white/8 p-1.5 backdrop-blur ring-1 ring-white/15 sm:h-14 sm:w-14">
-            <img src={logoAsset.url} alt="" className="h-full w-full object-contain" draggable={false} />
+           <img
+  src={logoAsset}
+  alt="SPOT Packers & Movers"
+  className="h-full w-full object-contain"
+  draggable={false}
+/>
           </span>
           <div className="flex flex-col leading-none">
             <span className="font-display text-[0.7rem] tracking-[0.42em] text-[var(--gold)]/90 sm:text-xs">
@@ -135,10 +140,10 @@ export function Hero() {
             </div>
 
             {/* Floating spec cards — Top-Left Insured / Top-Right 24×7 / Bottom-Left Insurance */}
-            <FloatCard className="-left-3 top-4" delay="0s" icon={<Shield className="h-3.5 w-3.5" />} title="Insured Transit" sub="Up to declared value" />
+          {/*  <FloatCard className="-left-3 top-4" delay="0s" icon={<Shield className="h-3.5 w-3.5" />} title="Insured Transit" sub="Up to declared value" />S
             <FloatCard className="-right-3 top-10" delay="1.2s" icon={<Clock className="h-3.5 w-3.5" />} title="24×7 Support" sub="Hindi · English · Kannada" />
             <FloatCard className="-left-2 bottom-6" delay="2.4s" icon={<PackageCheck className="h-3.5 w-3.5" />} title="Goods Insurance" sub="Full transit cover" />
-            <FloatCard className="-right-2 bottom-16 hidden lg:flex" delay="3.2s" icon={<Truck className="h-3.5 w-3.5" />} title="GPS Tracking" sub="Real-time updates" />
+            <FloatCard className="-right-2 bottom-16 hidden lg:flex" delay="3.2s" icon={<Truck className="h-3.5 w-3.5" />} title="GPS Tracking" sub="Real-time updates" /> */}
           </div>
         </div>
       </div>

@@ -1,4 +1,4 @@
-import logoAsset from "@/assets/spot-logo.png.asset.json";
+import logoAsset from "@/assets/spot-logo.png";
 import { cn } from "@/lib/utils";
 
 interface SpotLogoProps {
@@ -14,8 +14,7 @@ interface SpotLogoProps {
 export function SpotLogo({ className, withTagline, variant = "default" }: SpotLogoProps) {
   return (
     <div className={cn("inline-flex items-center gap-2", className)}>
-      <img
-        src={logoAsset.url}
+      <img src={logoAsset} 
         alt="SPOT"
         className="h-7 w-auto sm:h-8 select-none"
         draggable={false}

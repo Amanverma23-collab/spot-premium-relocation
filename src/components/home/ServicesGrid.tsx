@@ -12,7 +12,7 @@ const accentMap: Record<string, string> = {
 export function ServicesGrid() {
   return (
     <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28">
-      <div className="mb-12 flex flex-wrap items-end justify-between gap-6">
+      <div className="mb-12 flex flex-col items-center text-center gap-6">
         <div className="max-w-2xl">
           <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--electric)]">
             What we move

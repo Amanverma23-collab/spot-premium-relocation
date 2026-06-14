@@ -1,4 +1,4 @@
-import { ShieldCheck, MapPinned, Truck, BadgeIndianRupee, HeadphonesIcon, Users2, Wrench, Sparkles, Clock } from "lucide-react";
+import { ShieldCheck, MapPinned, Truck, BadgeIndianRupee, HeadphonesIcon, Users2, Wrench, Sparkles } from "lucide-react";
 
 const reasons = [
   { Icon: ShieldCheck, title: "IBA Approved", detail: "Bank-grade vetted moving partner." },
@@ -9,7 +9,6 @@ const reasons = [
   { Icon: HeadphonesIcon, title: "Real-Time Assistance", detail: "WhatsApp updates from pickup to drop." },
   { Icon: Wrench, title: "Modern Equipment", detail: "Hydraulic lifts, GPS fleet, sealed trucks." },
   { Icon: BadgeIndianRupee, title: "Honest Pricing", detail: "Itemised quotes, no surprise charges." },
-  { Icon: Clock, title: "24/7 Support", detail: "Reach us any day, any hour." },
 ];
 
 export function WhyChoose() {
@@ -20,7 +19,7 @@ export function WhyChoose() {
           Why SPOT
         </span>
         <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl md:text-5xl">
-          Nine reasons families and CFOs choose us.
+          Eight reasons families and CFOs choose us.
         </h2>
       </div>
 

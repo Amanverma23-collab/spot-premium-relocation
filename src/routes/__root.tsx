@@ -12,7 +12,6 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
-import { FloatingActions } from "@/components/layout/FloatingActions";
 import { SpotAiChat } from "@/components/ai/SpotAiChat";
 import { Toaster } from "@/components/ui/sonner";
 import { ThemeProvider, THEME_BOOTSTRAP_SCRIPT } from "@/lib/theme";
@@ -126,7 +125,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" className="overflow-x-hidden">
       <head>
         <HeadContent />
       </head>
@@ -150,7 +149,6 @@ function RootComponent() {
             <Outlet />
           </main>
           <SiteFooter />
-          <FloatingActions />
           <SpotAiChat />
           <Toaster />
         </div>

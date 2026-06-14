@@ -15,7 +15,7 @@ export function ReviewsSection() {
     <section className="relative overflow-hidden py-20 sm:py-28">
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-secondary/50 via-background to-background" />
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
-        <div className="flex flex-wrap items-end justify-between gap-6">
+        <div className="flex flex-col items-center text-center gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div className="max-w-2xl">
             <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--electric)]">
               <svg className="h-4 w-4" viewBox="0 0 48 48" aria-hidden>
@@ -40,7 +40,7 @@ export function ReviewsSection() {
           </a>
         </div>
 
-        <div className="scrollbar-hide mt-12 flex snap-x snap-mandatory gap-5 overflow-x-auto pb-4 md:grid md:overflow-visible md:pb-0 lg:grid-cols-3">
+        <div className="scrollbar-hide mt-12 max-w-full flex snap-x snap-mandatory gap-5 overflow-x-auto pb-4 md:grid md:overflow-visible md:pb-0 lg:grid-cols-3">
           {reviews.map((r) => (
             <article
               key={r.name + r.city}

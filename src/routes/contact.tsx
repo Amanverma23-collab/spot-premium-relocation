@@ -56,7 +56,7 @@ Notes: ${form.message}`;
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24">
-      <header className="max-w-2xl">
+      <header className="max-w-2xl text-center mx-auto">
         <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--orange-spot)]">Contact</span>
         <h1 className="mt-3 font-display text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
           Let's plan your move.

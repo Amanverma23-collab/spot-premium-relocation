@@ -25,7 +25,7 @@ export const Route = createFileRoute("/services/")({
 function ServicesIndex() {
   return (
     <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28">
-      <header className="max-w-2xl">
+      <header className="max-w-2xl text-center mx-auto">
         <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--electric)]">Services</span>
         <h1 className="mt-3 font-display text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
           Every kind of move, <span className="gradient-text-brand">done right.</span>
@@ -47,16 +47,16 @@ function ServicesIndex() {
               className="absolute -right-16 -top-16 h-44 w-44 rounded-full opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-50"
               style={{ background: accentMap[accent] }}
             />
-            <div className="relative">
+            <div className="relative min-w-0">
               <span
                 className="inline-flex h-12 w-12 items-center justify-center rounded-2xl text-white shadow-skeuo"
                 style={{ background: accentMap[accent] }}
               >
                 <Icon className="h-6 w-6" />
               </span>
-              <h2 className="mt-5 font-display text-xl font-semibold text-foreground">{title}</h2>
-              <p className="mt-1 text-sm font-medium text-[var(--electric)]">{tagline}</p>
-              <p className="mt-3 text-sm text-muted-foreground">{description}</p>
+              <h2 className="mt-5 font-display text-lg font-semibold text-foreground sm:text-xl">{title}</h2>
+              <p className="mt-1 text-xs font-medium text-[var(--electric)] sm:text-sm">{tagline}</p>
+              <p className="mt-3 text-xs text-muted-foreground sm:text-sm">{description}</p>
               <span className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-foreground">
                 Explore <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
               </span>

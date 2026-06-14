@@ -102,7 +102,7 @@ export function GallerySection() {
           </p>
         </div>
 
-        <div className="mt-12 grid grid-flow-col grid-rows-1 auto-cols-[70vw] gap-4 overflow-x-auto pb-4 sm:grid-rows-2 sm:auto-cols-[240px] sm:pb-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        <div className="mt-12 max-w-full grid grid-flow-col grid-rows-1 auto-cols-[70vw] gap-4 overflow-x-auto pb-4 sm:grid-rows-2 sm:auto-cols-[240px] sm:pb-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {galleryImages.map((img, i) => (
             <button
               key={i}

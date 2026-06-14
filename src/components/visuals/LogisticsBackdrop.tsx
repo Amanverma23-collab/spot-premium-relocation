@@ -32,7 +32,7 @@ export function LogisticsBackdrop({ variant = "section", className = "" }: { var
       ref={ref}
       aria-hidden
       className={`pointer-events-none absolute inset-0 overflow-hidden ${className}`}
-      style={{ transform: "translate3d(var(--mx,0), var(--my,0), 0)", transition: "transform 0.6s cubic-bezier(0.22,1,0.36,1)" }}
+      style={{ transform: "translate3d(var(--mx,0), var(--my,0), 0)", transition: "transform 0.6s cubic-bezier(0.22,1,0.36,1)", willChange: "transform" }}
     >
       {items.map((i) => (
         <FloatingShape key={i} index={i} variant={variant} />
@@ -63,6 +63,7 @@ function FloatingShape({ index, variant }: { index: number; variant: Variant }) 
         animationDelay: delay, animationDuration: dur,
         transform: `rotate(${rot}deg)`,
         opacity,
+        willChange: "transform",
       }}
     >
       {kind === 0 && <CargoCube />}

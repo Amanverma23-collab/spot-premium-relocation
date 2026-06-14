@@ -49,7 +49,7 @@ export function IndiaCoverage() {
       <div className="absolute inset-0 opacity-90" style={{ background: "var(--gradient-hero)" }} />
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6">
         <div className="grid items-center gap-12 lg:grid-cols-[1fr_1.2fr]">
-          <div>
+          <div className="text-center">
             <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--gold)]">
               Pan India Coverage
             </span>

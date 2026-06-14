@@ -409,3 +409,47 @@ html.theme-transition * {
     animation: none !important;
   }
 }
+
+/* Mobile performance optimizations */
+@media (max-width: 768px) {
+  /* Reduce heavy backdrop-filter blur on mobile */
+  .glass-panel,
+  .glass-card {
+    backdrop-filter: blur(8px) saturate(150%);
+    -webkit-backdrop-filter: blur(8px) saturate(150%);
+  }
+
+  /* Disable continuous float animations on mobile */
+  .animate-float-3d,
+  .animate-float-soft {
+    animation: none !important;
+  }
+
+  /* Disable pulse animations on mobile */
+  .animate-pulse {
+    animation: none !important;
+  }
+
+  /* Disable route-dash animation on mobile */
+  .animate-route-dash {
+    animation: none !important;
+  }
+
+  /* GPU acceleration for remaining animated elements */
+  .animate-brand-reveal {
+    will-change: transform, opacity;
+  }
+
+  /* Smooth scrolling performance */
+  * {
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Reduce paint complexity */
+  .glass-card,
+  .glass-panel,
+  .skeuo-surface {
+    will-change: auto;
+    contain: layout style;
+  }
+}

@@ -2,7 +2,8 @@ import { THEMES, useTheme, type ThemeId } from "@/lib/theme";
 import { cn } from "@/lib/utils";
 
 export function ThemeSwitcher({ className }: { className?: string }) {
-  const { theme, setTheme } = useTheme();
+  const { theme, setTheme, isMobileTheme } = useTheme();
+  if (isMobileTheme) return null;
   return (
     <div
       className={cn(
@@ -23,7 +24,9 @@ export function ThemeSwitcher({ className }: { className?: string }) {
             onClick={() => setTheme(t.id as ThemeId)}
             className={cn(
               "group relative grid h-7 w-7 place-items-center rounded-full transition",
-              active ? "ring-2 ring-[var(--ring)] ring-offset-2 ring-offset-background" : "hover:scale-110",
+              active
+                ? "ring-2 ring-[var(--ring)] ring-offset-2 ring-offset-background"
+                : "hover:scale-110",
             )}
           >
             <span

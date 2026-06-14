@@ -452,4 +452,22 @@ html.theme-transition * {
     will-change: auto;
     contain: layout style;
   }
+
+  /* India map container - aggressive containment on mobile */
+  .map-contain {
+    contain: layout style paint;
+    will-change: auto;
+    overflow: hidden;
+  }
+
+  .india-map-svg {
+    contain: layout style;
+    pointer-events: none;
+  }
+
+  /* Disable SVG drop-shadow filters on mobile (SMIL animations already skipped in JS) */
+  .india-map-svg circle,
+  .india-map-svg line {
+    filter: none !important;
+  }
 }

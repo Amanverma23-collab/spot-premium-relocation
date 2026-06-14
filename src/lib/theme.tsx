@@ -3,14 +3,14 @@ import { createContext, useContext, useEffect, useState, type ReactNode } from "
 export type ThemeId = "logistics-blue" | "luxury-gold" | "midnight-black" | "light-corporate";
 
 export const THEMES: { id: ThemeId; label: string; swatch: string[]; tone: "dark" | "light" }[] = [
-  { id: "logistics-blue", label: "Logistics Blue", swatch: ["#071426", "#1976FF", "#FF6A00"], tone: "dark" },
-  { id: "luxury-gold", label: "Luxury Gold", swatch: ["#0A0A0A", "#C9A84C", "#F5F0E0"], tone: "dark" },
-  { id: "midnight-black", label: "Midnight", swatch: ["#0B0B16", "#7C3AED", "#22D3EE"], tone: "dark" },
+  { id: "logistics-blue", label: "Logistics Blue", swatch: ["#E8F0FE", "#1565C0", "#FF6A00"], tone: "light" },
+  { id: "luxury-gold", label: "Luxury Gold", swatch: ["#FFFEF7", "#7C5E10", "#C9A84C"], tone: "light" },
+  { id: "midnight-black", label: "Midnight", swatch: ["#EDE9FE", "#6D28D9", "#0891B2"], tone: "light" },
   { id: "light-corporate", label: "Corporate", swatch: ["#FFFFFF", "#0F1B3D", "#FF6A00"], tone: "light" },
 ];
 
 const STORAGE_KEY = "spot-theme";
-const DEFAULT: ThemeId = "logistics-blue";
+const DEFAULT: ThemeId = "light-corporate";
 
 interface Ctx {
   theme: ThemeId;
@@ -52,4 +52,4 @@ export function useTheme() {
 }
 
 /** Inline script string for __root.tsx — applies stored theme before paint. */
-export const THEME_BOOTSTRAP_SCRIPT = `(function(){try{var t=localStorage.getItem('${STORAGE_KEY}')||'${DEFAULT}';document.documentElement.setAttribute('data-theme',t);var dark=t!=='light-corporate';document.documentElement.classList.toggle('dark',dark);}catch(e){}})();`;
+export const THEME_BOOTSTRAP_SCRIPT = `(function(){try{var t=localStorage.getItem('${STORAGE_KEY}')||'${DEFAULT}';document.documentElement.setAttribute('data-theme',t);document.documentElement.classList.remove('dark');}catch(e){}})();`;

@@ -45,13 +45,13 @@ export function SiteHeader() {
           <ThemeSwitcher />
           <a
             href={telUrl(SITE.phones[0])}
-            className="inline-flex items-center gap-2 rounded-full border border-border bg-secondary/60 px-4 py-2 text-sm font-medium text-foreground transition hover:bg-secondary"
+            className="inline-flex shrink-0 items-center gap-2 whitespace-nowrap rounded-full border border-border bg-secondary/60 px-4 py-2 text-sm font-medium text-foreground transition hover:bg-secondary"
           >
             <Phone className="h-4 w-4" /> {SITE.phones[0]}
           </a>
           <Link
             to="/contact"
-            className="inline-flex items-center rounded-full bg-[var(--orange-spot)] px-5 py-2 text-sm font-semibold text-white shadow-glow-orange transition hover:brightness-110"
+            className="inline-flex items-center rounded-full bg-[var(--orange-spot)] px-4 py-1.5 text-xs font-semibold text-white shadow-glow-orange transition hover:brightness-110"
           >
             Get Free Quote
           </Link>
@@ -79,6 +79,9 @@ export function SiteHeader() {
                 {item.label}
               </Link>
             ))}
+            <div className="flex justify-center pt-2">
+              <ThemeSwitcher />
+            </div>
             <Link
               to="/contact"
               onClick={() => setOpen(false)}

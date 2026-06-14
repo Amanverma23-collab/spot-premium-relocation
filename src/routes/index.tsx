@@ -5,6 +5,7 @@ import { ServicesGrid } from "@/components/home/ServicesGrid";
 import { WhyChoose } from "@/components/home/WhyChoose";
 import { ProcessTimeline } from "@/components/home/ProcessTimeline";
 import { IndiaCoverage } from "@/components/home/IndiaCoverage";
+import { GallerySection } from "@/components/home/GallerySection";
 import { ReviewsSection } from "@/components/home/ReviewsSection";
 import { ContactBlock } from "@/components/home/ContactBlock";
 
@@ -35,6 +36,7 @@ function HomePage() {
       <WhyChoose />
       <ProcessTimeline />
       <IndiaCoverage />
+      <GallerySection />
       <ReviewsSection />
       <ContactBlock />
     </>

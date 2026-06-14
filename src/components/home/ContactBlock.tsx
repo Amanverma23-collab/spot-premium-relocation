@@ -16,7 +16,7 @@ export function ContactBlock() {
             Call, WhatsApp, or drop by — we'll put together a tailored, itemised quote with no obligation.
           </p>
 
-          <div className="mt-8 space-y-3">
+          <div className="mt-8 grid grid-cols-2 gap-3">
             {SITE.phones.map((p) => (
               <a key={p} href={telUrl(p)} className="flex items-center gap-3 rounded-2xl border border-border bg-card p-4 transition hover:border-[var(--electric)]/40 hover:shadow-elevated">
                 <span className="grid h-11 w-11 place-items-center rounded-xl bg-[var(--electric)] text-white">

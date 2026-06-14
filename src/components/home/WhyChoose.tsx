@@ -24,7 +24,7 @@ export function WhyChoose() {
         </h2>
       </div>
 
-      <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-12 grid grid-cols-2 gap-4 lg:grid-cols-3">
         {reasons.map(({ Icon, title, detail }) => (
           <div
             key={title}

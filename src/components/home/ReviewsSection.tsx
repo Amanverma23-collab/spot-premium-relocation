@@ -40,11 +40,11 @@ export function ReviewsSection() {
           </a>
         </div>
 
-        <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        <div className="scrollbar-hide mt-12 flex snap-x snap-mandatory gap-5 overflow-x-auto pb-4 md:grid md:overflow-visible md:pb-0 lg:grid-cols-3">
           {reviews.map((r) => (
             <article
               key={r.name + r.city}
-              className="glass-card rounded-3xl p-6 transition hover:-translate-y-1"
+              className="glass-card min-w-[85vw] snap-center rounded-3xl p-6 transition hover:-translate-y-1 md:min-w-0 md:snap-align-none"
             >
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">

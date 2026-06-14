@@ -5,9 +5,9 @@ import { useCountUp } from "@/hooks/use-count-up";
 import { LogisticsBackdrop } from "@/components/visuals/LogisticsBackdrop";
 import logoAsset from "@/assets/spot-logo.png";
 
-const HERO_VIDEO = "https://assets.mixkit.co/videos/4485/4485-720.mp4";
+const HERO_VIDEO = "https://assets.mixkit.co/videos/52017/52017-720.mp4";
 const HERO_POSTER =
-  "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=1200&q=70";
+  "https://assets.mixkit.co/videos/52017/52017-thumb-720-0.jpg";
 
 export function Hero() {
   return (
@@ -26,29 +26,19 @@ export function Hero() {
       {/* premium floating logistics elements */}
       <LogisticsBackdrop variant="hero" />
 
-      <div className="relative mx-auto max-w-7xl px-4 pb-24 pt-10 sm:px-6 sm:pt-14 lg:pb-32 lg:pt-20">
-        {/* Brand lockup — fills the previously empty area above the badge */}
-        <div className="mb-8 flex items-center gap-3 animate-brand-reveal sm:mb-10">
-          <span className="grid h-12 w-12 place-items-center rounded-2xl bg-white/8 p-1.5 backdrop-blur ring-1 ring-white/15 sm:h-14 sm:w-14">
-           <img
-  src={logoAsset}
-  alt="SPOT Packers & Movers"
-  className="h-full w-full object-contain"
-  draggable={false}
-/>
-          </span>
-          <div className="flex flex-col leading-none">
-            <span className="font-display text-[0.7rem] tracking-[0.42em] text-[var(--gold)]/90 sm:text-xs">
-              SPOT
-            </span>
-            <span className="mt-1 font-display text-lg font-semibold tracking-[0.22em] text-white sm:text-xl">
-              PACKERS &amp; MOVERS
-            </span>
-          </div>
+      <div className="relative mx-auto max-w-7xl px-4 pb-24 pt-2 sm:px-6 sm:pt-2 lg:pb-32 lg:pt-2">
+        {/* Brand lockup */}
+        <div className="flex flex-col items-center -mt-4 animate-brand-reveal">
+          <img
+            src={logoAsset}
+            alt="SPOT Packers & Movers"
+            className="h-32 w-32 object-contain sm:h-40 sm:w-40 lg:h-48 lg:w-48"
+            draggable={false}
+          />
         </div>
 
-        <div className="grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
-          <div>
+        <div className="grid items-start gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+          <div className="text-center lg:text-left">
             <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1.5 text-xs font-medium uppercase tracking-wider text-white/80 backdrop-blur">
               <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[var(--gold)]" />
               IBA Approved · 4.9★ on Google · Pan India
@@ -64,7 +54,7 @@ export function Hero() {
               backed by 10,000+ moves and 676+ verified Google reviews.
             </p>
 
-            <div className="mt-8 flex flex-wrap items-center gap-3">
+            <div className="mt-8 flex flex-wrap items-center justify-center lg:justify-start gap-3">
               <Link
                 to="/contact"
                 className="group inline-flex items-center gap-2 rounded-full bg-[var(--orange-spot)] px-6 py-3 text-sm font-semibold text-white shadow-glow-orange transition hover:brightness-110"
@@ -98,7 +88,7 @@ export function Hero() {
           </div>
 
           {/* Premium video card */}
-          <div className="relative">
+          <div className="relative pt-7">
             <div className="glass-card relative mx-auto aspect-[5/4] w-full max-w-md overflow-hidden rounded-[2rem] p-0">
               <video
                 className="absolute inset-0 h-full w-full object-cover"
@@ -139,11 +129,11 @@ export function Hero() {
               </div>
             </div>
 
-            {/* Floating spec cards — Top-Left Insured / Top-Right 24×7 / Bottom-Left Insurance */}
-          {/*  <FloatCard className="-left-3 top-4" delay="0s" icon={<Shield className="h-3.5 w-3.5" />} title="Insured Transit" sub="Up to declared value" />S
-            <FloatCard className="-right-3 top-10" delay="1.2s" icon={<Clock className="h-3.5 w-3.5" />} title="24×7 Support" sub="Hindi · English · Kannada" />
-            <FloatCard className="-left-2 bottom-6" delay="2.4s" icon={<PackageCheck className="h-3.5 w-3.5" />} title="Goods Insurance" sub="Full transit cover" />
-            <FloatCard className="-right-2 bottom-16 hidden lg:flex" delay="3.2s" icon={<Truck className="h-3.5 w-3.5" />} title="GPS Tracking" sub="Real-time updates" /> */}
+            {/* Floating spec cards */}
+            <FloatCard className="left-4 top-[calc(100%+60px)]" delay="0s" icon={<Shield className="h-3.5 w-3.5" />} title="Insured Transit" sub="Up to declared value" />
+            <FloatCard className="right-4 top-[calc(100%+60px)]" delay="1.2s" icon={<Clock className="h-3.5 w-3.5" />} title="24×7 Support" sub="Hindi · English · Kannada" />
+            <FloatCard className="left-4 top-[calc(100%+160px)]" delay="2.4s" icon={<PackageCheck className="h-3.5 w-3.5" />} title="Goods Insurance" sub="Full transit cover" />
+            <FloatCard className="right-4 top-[calc(100%+160px)]" delay="3.2s" icon={<Truck className="h-3.5 w-3.5" />} title="GPS Tracking" sub="Real-time updates" />
           </div>
         </div>
       </div>

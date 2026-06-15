@@ -84,8 +84,8 @@ export function SiteFooter() {
                 </li>
               ))}
               <li>
-                <a href={`mailto:${SITE.email}`} className="inline-flex items-center gap-2 text-white/80 hover:text-white">
-                  <Mail className="h-4 w-4" /> {SITE.email}
+                <a href={`mailto:${SITE.email}`} className="inline-flex items-center gap-2 break-all text-white/80 hover:text-white">
+                  <Mail className="h-4 w-4 shrink-0" /> {SITE.email}
                 </a>
               </li>
               <li>

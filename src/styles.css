@@ -439,6 +439,14 @@ html.theme-transition * {
   }
 }
 
+/* Mobile email fix */
+@media (max-width: 640px) {
+  footer a[href^="mailto:"] {
+    word-break: break-all;
+    overflow-wrap: break-word;
+  }
+}
+
 /* Mobile performance optimizations */
 @media (max-width: 768px) {
   /* Reduce heavy backdrop-filter blur on mobile */

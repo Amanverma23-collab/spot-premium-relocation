@@ -289,6 +289,35 @@
   animation: brand-reveal 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
+@keyframes spin-right {
+  0% { transform: perspective(600px) rotateY(0deg); }
+  100% { transform: perspective(600px) rotateY(360deg); }
+}
+@keyframes spin-left {
+  0% { transform: perspective(600px) rotateY(0deg); }
+  100% { transform: perspective(600px) rotateY(-360deg); }
+}
+@utility animate-spin-right {
+  animation: spin-right 2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+@utility animate-spin-left {
+  animation: spin-left 2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Neon tube 3D logo effect */
+.logo-neon-tube {
+  filter:
+    brightness(1.1)
+    contrast(1.05)
+    saturate(1.2)
+    drop-shadow(0 3px 6px rgba(0, 0, 0, 0.5));
+}
+.logo-neon-tube-depth {
+  filter:
+    brightness(0.6)
+    contrast(1.1);
+}
+
 /* ========== Theme System ========== */
 
 /* Default theme is logistics-blue (already in :root above). */

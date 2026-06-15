@@ -1,3 +1,4 @@
+import { useState, useRef, useCallback, useEffect } from "react";
 import { Link } from "@tanstack/react-router";
 import { ArrowRight, Phone, Shield, Truck, Clock, PackageCheck } from "lucide-react";
 import { SITE, telUrl, whatsappUrl } from "@/lib/site";
@@ -10,10 +11,50 @@ const HERO_POSTER =
   "https://assets.mixkit.co/videos/52017/52017-thumb-720-0.jpg";
 
 export function Hero() {
+  const [rotateX, setRotateX] = useState(0);
+  const [rotateY, setRotateY] = useState(0);
+  const logoRef = useRef<HTMLDivElement>(null);
+  const isDragging = useRef(false);
+  const startX = useRef(0);
+  const startY = useRef(0);
+  const startRotX = useRef(0);
+  const startRotY = useRef(0);
+
+  const onPointerDown = useCallback((e: React.PointerEvent<HTMLDivElement>) => {
+    isDragging.current = true;
+    startX.current = e.clientX;
+    startY.current = e.clientY;
+    startRotX.current = rotateX;
+    startRotY.current = rotateY;
+    (e.target as HTMLElement).setPointerCapture(e.pointerId);
+  }, [rotateX, rotateY]);
+
+  const onPointerMove = useCallback((e: React.PointerEvent<HTMLDivElement>) => {
+    if (!isDragging.current) return;
+    const dx = e.clientX - startX.current;
+    const dy = e.clientY - startY.current;
+    setRotateY(startRotY.current + dx * 0.8);
+    setRotateX(startRotX.current - dy * 0.8);
+  }, []);
+
+  const onPointerUp = useCallback(() => {
+    isDragging.current = false;
+  }, []);
+
+  useEffect(() => {
+    const el = logoRef.current;
+    if (!el) return;
+    el.style.transition = "transform 1.5s cubic-bezier(0.22, 1, 0.36, 1)";
+    setRotateY(360);
+    const timer = setTimeout(() => {
+      el.style.transition = "";
+    }, 1600);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <section className="relative overflow-hidden bg-[var(--navy-deep)] text-white">
       <div className="absolute inset-0" style={{ background: "var(--gradient-hero)" }} />
-      {/* grid */}
       <div
         className="absolute inset-0 opacity-[0.08]"
         style={{
@@ -23,18 +64,48 @@ export function Hero() {
           maskImage: "radial-gradient(ellipse at center, black 30%, transparent 75%)",
         }}
       />
-      {/* premium floating logistics elements */}
       <LogisticsBackdrop variant="hero" />
 
       <div className="relative mx-auto max-w-7xl px-4 pb-24 pt-2 sm:px-6 sm:pt-2 lg:pb-32 lg:pt-2">
-        {/* Brand lockup */}
         <div className="flex flex-col items-center -mt-4 animate-brand-reveal">
-          <img
-            src={logoAsset}
-            alt="SPOT Packers & Movers"
-            className="h-32 w-32 object-contain sm:h-40 sm:w-40 lg:h-48 lg:w-48"
-            draggable={false}
-          />
+          <div
+            className="relative cursor-grab active:cursor-grabbing select-none touch-none"
+            style={{ perspective: "800px" }}
+            onPointerDown={onPointerDown}
+            onPointerMove={onPointerMove}
+            onPointerUp={onPointerUp}
+            onPointerLeave={onPointerUp}
+          >
+            <div
+              ref={logoRef}
+              className="relative"
+              style={{ transformStyle: "preserve-3d", transform: `rotateX(${rotateX}deg) rotateY(${rotateY}deg)` }}
+            >
+              {[...Array(8)].map((_, i) => (
+                <img
+                  key={i}
+                  src={logoAsset}
+                  alt=""
+                  aria-hidden="true"
+                  className="absolute inset-0 h-32 w-32 object-contain rounded-full sm:h-40 sm:w-40 lg:h-48 lg:w-48"
+                  style={{
+                    transform: `translateZ(${-i * 2}px)`,
+                    filter: `brightness(${0.35 + i * 0.03})`,
+                  }}
+                  draggable={false}
+                />
+              ))}
+              <img
+                src={logoAsset}
+                alt="SPOT Packers & Movers"
+                className="relative h-32 w-32 object-contain rounded-full sm:h-40 sm:w-40 lg:h-48 lg:w-48"
+                style={{
+                  filter: "drop-shadow(0 6px 12px rgba(0,0,0,0.5))",
+                }}
+                draggable={false}
+              />
+            </div>
+          </div>
         </div>
 
         <div className="grid items-start gap-6 lg:grid-cols-[1.1fr_0.9fr]">
@@ -78,7 +149,6 @@ export function Hero() {
               </a>
             </div>
 
-            {/* Animated stats */}
             <div className="mt-10 grid max-w-xl grid-cols-2 gap-3 sm:grid-cols-4">
               <Stat target={10000} suffix="+" label="Moves done" />
               <Stat target={676} suffix="+" label="5★ reviews" />
@@ -87,7 +157,6 @@ export function Hero() {
             </div>
           </div>
 
-          {/* Premium video card */}
           <div className="relative pt-7">
             <div className="glass-card relative mx-auto aspect-[5/4] w-full max-w-md overflow-hidden rounded-[2rem] p-0">
               <video
@@ -101,7 +170,6 @@ export function Hero() {
               >
                 <source src={HERO_VIDEO} type="video/mp4" />
               </video>
-              {/* gradient overlay for legibility */}
               <div className="absolute inset-0 bg-gradient-to-tr from-black/80 via-black/30 to-transparent" />
               <div className="absolute inset-0 ring-1 ring-inset ring-white/15" />
 
@@ -129,7 +197,6 @@ export function Hero() {
               </div>
             </div>
 
-            {/* Floating spec cards */}
             <FloatCard className="left-4 top-[calc(100%+60px)]" delay="0s" icon={<Shield className="h-3.5 w-3.5" />} title="Insured Transit" sub="Up to declared value" />
             <FloatCard className="right-4 top-[calc(100%+60px)]" delay="1.2s" icon={<Clock className="h-3.5 w-3.5" />} title="24×7 Support" sub="Hindi · English · Kannada" />
             <FloatCard className="left-4 top-[calc(100%+160px)]" delay="2.4s" icon={<PackageCheck className="h-3.5 w-3.5" />} title="Goods Insurance" sub="Full transit cover" />

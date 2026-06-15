@@ -36,7 +36,7 @@ export function ServicesGrid() {
             to="/services/$slug"
             params={{ slug }}
             className={cn(
-              "group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-border bg-card p-6 transition-all duration-500 hover:-translate-y-1.5 hover:shadow-elevated",
+              "group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-border bg-card p-4 sm:p-6 transition-all duration-500 hover:-translate-y-1.5 hover:shadow-elevated",
             )}
           >
             <div
@@ -50,8 +50,8 @@ export function ServicesGrid() {
               >
                 <Icon className="h-6 w-6" />
               </span>
-              <h3 className="mt-5 font-display text-lg font-semibold text-foreground">{title}</h3>
-              <p className="mt-1.5 text-sm text-muted-foreground">{tagline}</p>
+              <h3 className="mt-5 font-display text-base font-semibold text-foreground sm:text-lg">{title}</h3>
+              <p className="mt-1.5 text-xs text-muted-foreground sm:text-sm">{tagline}</p>
             </div>
             <div className="relative mt-8 inline-flex items-center gap-1.5 text-sm font-semibold text-foreground">
               Learn more

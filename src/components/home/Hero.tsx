@@ -19,6 +19,12 @@ export function Hero() {
   const startY = useRef(0);
   const startRotX = useRef(0);
   const startRotY = useRef(0);
+  const velX = useRef(0);
+  const velY = useRef(0);
+  const lastMoveTime = useRef(0);
+  const lastMoveX = useRef(0);
+  const lastMoveY = useRef(0);
+  const momentumRef = useRef<number>(0);
 
   const onPointerDown = useCallback((e: React.PointerEvent<HTMLDivElement>) => {
     isDragging.current = true;
@@ -26,6 +32,12 @@ export function Hero() {
     startY.current = e.clientY;
     startRotX.current = rotateX;
     startRotY.current = rotateY;
+    lastMoveX.current = e.clientX;
+    lastMoveY.current = e.clientY;
+    lastMoveTime.current = performance.now();
+    velX.current = 0;
+    velY.current = 0;
+    if (momentumRef.current) cancelAnimationFrame(momentumRef.current);
     (e.target as HTMLElement).setPointerCapture(e.pointerId);
   }, [rotateX, rotateY]);
 
@@ -35,9 +47,49 @@ export function Hero() {
     const dy = e.clientY - startY.current;
     setRotateY(startRotY.current + dx * 0.8);
     setRotateX(startRotX.current - dy * 0.8);
+
+    const now = performance.now();
+    const dt = now - lastMoveTime.current;
+    if (dt > 0) {
+      velX.current = ((e.clientX - lastMoveX.current) * 0.8) / dt * 16;
+      velY.current = (-(e.clientY - lastMoveY.current) * 0.8) / dt * 16;
+    }
+    lastMoveX.current = e.clientX;
+    lastMoveY.current = e.clientY;
+    lastMoveTime.current = now;
   }, []);
 
   const onPointerUp = useCallback(() => {
+    if (!isDragging.current) return;
+    isDragging.current = false;
+
+    const vx = velX.current;
+    const vy = velY.current;
+    const speed = Math.sqrt(vx * vx + vy * vy);
+    if (speed < 0.3) return;
+
+    let curRotX = rotateX;
+    let curRotY = rotateY;
+    let currentVx = vx;
+    let currentVy = vy;
+    const friction = 0.98;
+
+    const animate = () => {
+      currentVx *= friction;
+      currentVy *= friction;
+      curRotY += currentVx;
+      curRotX += currentVy;
+      setRotateY(curRotY);
+      setRotateX(curRotX);
+
+      if (Math.abs(currentVx) > 0.01 || Math.abs(currentVy) > 0.01) {
+        momentumRef.current = requestAnimationFrame(animate);
+      }
+    };
+    momentumRef.current = requestAnimationFrame(animate);
+  }, [rotateX, rotateY]);
+
+  const onPointerLeave = useCallback(() => {
     isDragging.current = false;
   }, []);
 
@@ -74,7 +126,7 @@ export function Hero() {
             onPointerDown={onPointerDown}
             onPointerMove={onPointerMove}
             onPointerUp={onPointerUp}
-            onPointerLeave={onPointerUp}
+            onPointerLeave={onPointerLeave}
           >
             <div
               ref={logoRef}

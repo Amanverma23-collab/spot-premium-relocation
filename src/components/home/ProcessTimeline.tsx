@@ -29,7 +29,7 @@ export function ProcessTimeline() {
         </div>
 
         <div className="mt-14 max-w-full overflow-x-auto pb-4 [scrollbar-width:thin]">
-          <ol className="relative flex min-w-[800px] items-start gap-4 justify-center lg:min-w-0">
+          <ol className="relative flex min-w-[600px] items-start gap-4 justify-center lg:min-w-0">
             <div className="pointer-events-none absolute left-6 right-6 top-9 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent" />
             {steps.map(({ Icon, title, detail }, i) => (
               <li key={title} className="relative flex-1 text-center">
